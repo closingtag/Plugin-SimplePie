@@ -40,9 +40,9 @@ class Plugin_simplepie extends Plugin {
       if ($success) {
         $loop_count = 0;
         $output = "";
-        $parser = new Lex_Parser();
-        $parser->scope_glue(':');
-        $parser->cumulative_noparse(true);
+        $parser = new \Lex\Parser();
+        $parser->scopeGlue(':');
+        $parser->cumulativeNoparse(TRUE);
 
         $debug = array();
         foreach($feed->get_items($offset) as $item) {
