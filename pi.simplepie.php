@@ -10,7 +10,7 @@ class Plugin_simplepie extends Plugin {
   );
 
   public function index() {
-    $url            = $this->fetchParam('url', null);
+    $urls           = $this->fetchParam('url', null);
     $order_by_date  = $this->fetchParam('order_by_date', true, false, true);
     $offset         = $this->fetchParam('offset', 0);
     $cache          = $this->fetchParam('cache', false, false, true);
@@ -24,12 +24,14 @@ class Plugin_simplepie extends Plugin {
       $limit = $count; # backwards compatibility
     }
 
+    $feeds = Helper::explodeOptions($urls);
+
     $feed = new SimplePie();
 
     $feed->set_cache_location("_cache");
     $feed->enable_cache($cache);
 
-    $feed->set_feed_url($url);
+    $feed->set_feed_url($feeds);
     $feed->enable_order_by_date($order_by_date);
 
     $success = $feed->init();

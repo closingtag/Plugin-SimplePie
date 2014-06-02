@@ -10,7 +10,7 @@ The SimplePie plugin is a fast and easy-to-use RSS and Atom feed parser.
 
 ## Example Tag
     
-    {{ simplepie url="http://statamic.com/blog/feed" limit="5" cache="yes" }}
+    {{ simplepie url="http://statamic.com/blog/feed|https://www.apple.com/main/rss/hotnews/hotnews.rss" limit="5" cache="yes" }}
       <h1><a href="{{ permalink }}">{{ title }}</a></h1>
       <h2>Posted on {{ date }}</h2>
       <div class="content">
@@ -22,9 +22,11 @@ The SimplePie plugin is a fast and easy-to-use RSS and Atom feed parser.
 
 ### URL `url`
 
-The URL of the feed to be parsed.
+The URLs of the feed to be parsed.
 
-    url="http://statamic.com/blog/feed/"
+    url="http://statamic.com/blog/feed/|https://www.apple.com/main/rss/hotnews/hotnews.rss"
+
+Combine multiple feeds by using "|" as seperator.
 
 ### Order By Date `order_by_date`
 **default:** yes
