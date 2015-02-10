@@ -5,13 +5,15 @@ require_once('lib/simplepie_1.3.mini.php');
 class Plugin_simplepie extends Plugin
 {
 
-    var $meta = array(
-      'name'       => 'Simple Pie',
-      'version'    => '1.0.1',
-      'author'     => 'Statamic',
-      'author_url' => 'http://statamic.com'
-    );
+  var $meta = array(
+    'name'       => 'Simple Pie',
+    'version'    => '1.0.1',
+    'author'     => 'Statamic',
+    'author_url' => 'http://statamic.com'
+  );
 
+  public function index()
+  {
     $urls           = $this->fetchParam('url', null);
     $order_by_date  = $this->fetchParam('order_by_date', true, false, true);
     $offset         = $this->fetchParam('offset', 0);
