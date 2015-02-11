@@ -56,10 +56,10 @@ class Plugin_simplepie extends Plugin
         $data['permalink']    = $item->get_permalink();
         $data['date']         = $item->get_date(Config::getDateFormat());
         $data['updated_date'] = $item->get_updated_date(Config::getDateFormat());
-        $data['author']       = $item->get_author();
+        $data['author']       = $item->get_author() === NULL ? '' : $item->get_author()->get_name();
         $data['category']     = $item->get_category();
         $data['description']  = $item->get_description();
-        $data['content']      = $item->get_content();
+        $data['contentencoded'] = $item->get_content();
 
         $loop_count ++;
         $output .= Parse::template($this->content, $data);
